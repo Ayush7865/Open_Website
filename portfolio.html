@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Renewable Energy Portfolio — Pramod Kumar</title>
+<style>
+  :root{
+    --accent:#004b8d;
+    --accent-2:#006dcc;
+    --bg:#f8f9fa;
+    --card:#fff;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    display:flex;
+    background:var(--bg);
+    color:#222;
+    min-height:100vh;
+    line-height:1.5;
+  }
+
+  /* Sidebar */
+  nav{
+    width:230px;
+    background:var(--accent);
+    color:#fff;
+    padding:32px 16px;
+    position:fixed;
+    inset:0 auto 0 0;
+    min-height:100vh;
+    overflow:auto;
+  }
+  nav h2{
+    text-align:center;
+    margin:0 0 18px;
+    font-size:18px;
+    letter-spacing:0.2px;
+  }
+  nav .nav-links{display:block; margin-bottom:18px;}
+  nav a{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    border-radius:8px;
+    margin:6px 6px;
+    font-weight:600;
+    transition:background .18s, transform .06s;
+  }
+  nav a:hover{background:var(--accent-2); transform:translateY(-1px)}
+  nav a.active{background:rgba(255,255,255,0.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02)}
+  .sidebar-meta{
+    margin-top:18px;
+    padding:14px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    font-size:13px;
+    line-height:1.4;
+    color:rgba(255,255,255,0.95);
+  }
+
+  /* Main */
+  main{
+    margin-left:230px;
+    padding:28px;
+    flex:1 1 auto;
+    max-width:980px;
+  }
+  header.page-title{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:10px;
+  }
+  header.page-title h1{
+    margin:0;
+    color:var(--accent);
+    font-size:22px;
+  }
+  header.page-sub{color:var(--muted); margin-bottom:18px; font-size:13px}
+
+  section{
+    display:none;
+    animation:fadeIn .35s ease;
+  }
+  section.active{display:block}
+
+  .diagram{
+    display:flex;
+    justify-content:center;
+    margin:20px 0 18px;
+  }
+  svg{width:100%; max-width:560px; height:auto; display:block}
+
+  .explanation{
+    background:var(--card);
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 6px 18px rgba(16,24,40,0.06);
+  }
+  .explanation h3{
+    color:var(--accent);
+    margin:12px 0 6px;
+    font-size:15px;
+  }
+  .explanation p{margin:8px 0; font-size:14px; color:#222}
+  .small{font-size:13px; color:var(--muted)}
+
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+
+  /* responsive */
+  @media (max-width:800px){
+    nav{position:relative; width:100%; min-height:auto; padding:18px}
+    main{margin-left:0; padding:18px}
+    body{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+<nav aria-label="Primary">
+  <h2>Portfolio</h2>
+  <div class="nav-links">
+    <a href="#" data-target="about" class="active" onclick="showSection('about', this)">About This Portfolio</a>
+    <a href="#" data-target="activity1" onclick="showSection('activity1', this)">Activity 1 — Rooftop Solar PV (5 kW)</a>
+    <a href="#" data-target="activity2" onclick="showSection('activity2', this)">Activity 2 — Hybrid Solar + Wind (Clinic)</a>
+    <a href="#" data-target="activity3" onclick="showSection('activity3', this)">Activity 3 — Solar Irrigation Pump</a>
+  </div>
+
+  <div class="sidebar-meta" aria-hidden="false">
+    <strong>Name:</strong> Pramod Kumar<br>
+    <strong>Registration No.:</strong> RA2311004010615<br>
+    <strong>Department:</strong> Electronics &amp; Communication Engineering (ECE)
+  </div>
+</nav>
+
+<main>
+  <!-- ABOUT -->
+  <section id="about" class="active" aria-labelledby="aboutTitle">
+    <header class="page-title">
+      <h1 id="aboutTitle">About This Portfolio</h1>
+    </header>
+    <p class="page-sub">A concise presentation of three renewable energy system designs with block diagrams and structured explanations.</p>
+
+    <div class="explanation">
+      <h3>Overview</h3>
+      <p>This portfolio showcases three innovative renewable energy systems designed to address energy challenges in different contexts. Each activity presents a complete system design with block diagrams and detailed explanations of how these sustainable energy solutions work and their benefits to communities.</p>
+
+      <h3>Author &amp; Affiliation</h3>
+      <p><strong>Pramod Kumar</strong><br>
+      Registration Number: <strong>RA2311004010615</strong><br>
+      Department: <strong>Electronics and Communication Engineering (ECE)</strong></p>
+
+      <h3>Purpose</h3>
+      <p class="small">The aim is to demonstrate practical renewable system layouts, conversion processes, typical outputs, and real-world applications for residential, institutional, and agricultural use-cases.</p>
+    </div>
+  </section>
+
+  <!-- Activity 1 -->
+  <section id="activity1" aria-labelledby="act1Title">
+    <header class="page-title">
+      <h1 id="act1Title">Activity 1: Rooftop Solar PV System (5 kW)</h1>
+    </header>
+
+    <div class="diagram" role="img" aria-label="Block diagram showing solar PV to inverter to battery to grid">
+      <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" role="graphics-document">
+        <defs>
+          <marker id="arrow1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#004b8d" />
+          </marker>
+        </defs>
+        <rect x="20" y="50" width="100" height="50" fill="#ffd54f" stroke="#333"/>
+        <text x="40" y="80" font-size="12" fill="#222">Solar PV</text>
+
+        <line x1="120" y1="75" x2="200" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow1)"/>
+
+        <rect x="200" y="50" width="100" height="50" fill="#aed581" stroke="#333"/>
+        <text x="215" y="80" font-size="12" fill="#222">Inverter</text>
+
+        <line x1="300" y1="75" x2="380" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow1)"/>
+
+        <rect x="380" y="50" width="100" height="50" fill="#81d4fa" stroke="#333"/>
+        <text x="400" y="80" font-size="12" fill="#222">Battery</text>
+
+        <line x1="480" y1="75" x2="560" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow1)"/>
+
+        <rect x="540" y="50" width="40" height="50" fill="#ef9a9a" stroke="#333"/>
+        <text x="543" y="80" font-size="10" fill="#222">Grid</text>
+      </svg>
+    </div>
+
+    <div class="explanation">
+      <h3>System Explanation</h3>
+      <p>This rooftop solar PV installation is sized at 5 kW and integrates a grid-tied inverter and a battery backup system. It is designed to supply household or small-institutional loads with priority to on-site consumption, battery charging, and export of surplus energy to the utility network.</p>
+
+      <h3>Source of Energy</h3>
+      <p>Primary source: sunlight. Solar photovoltaic modules convert incident solar radiation into direct current (DC) electricity using semiconductor cells.</p>
+
+      <h3>Conversion Process</h3>
+      <p>DC power from PV modules is routed to an inverter which converts it to AC suitable for standard appliances. Excess energy charges the battery storage; when batteries are full, surplus can be exported to the grid. A charge controller / PV combiner ensures safe operation.</p>
+
+      <h3>Output/Utilization</h3>
+      <p>The system supplies AC electricity for lighting, fans, home appliances, and small electronic loads. Battery storage provides backup during low-sun periods and nighttime.</p>
+
+      <h3>Real-World Application</h3>
+      <p>Rooftop PV systems reduce household energy bills, lower carbon footprint, and support grid resilience. They are ideal for urban and peri-urban residential or commercial rooftops seeking reliable renewable energy.</p>
+    </div>
+  </section>
+
+  <!-- Activity 2 -->
+  <section id="activity2" aria-labelledby="act2Title">
+    <header class="page-title">
+      <h1 id="act2Title">Activity 2: Hybrid Solar PV & Wind System for Rural Health Clinic</h1>
+    </header>
+
+    <div class="diagram" role="img" aria-label="Block diagram showing solar PV and wind turbine feeding charge controller, battery bank and load">
+      <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" role="graphics-document">
+        <defs>
+          <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#004b8d" />
+          </marker>
+        </defs>
+
+        <rect x="20" y="40" width="100" height="40" fill="#ffd54f" stroke="#333"/>
+        <text x="35" y="65" font-size="12" fill="#222">Solar PV</text>
+
+        <rect x="20" y="100" width="100" height="40" fill="#90caf9" stroke="#333"/>
+        <text x="38" y="125" font-size="12" fill="#222">Wind Turbine</text>
+
+        <line x1="120" y1="60" x2="200" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow2)"/>
+        <rect x="200" y="60" width="120" height="50" fill="#a5d6a7" stroke="#333"/>
+        <text x="207" y="90" font-size="11" fill="#222">Charge Controller</text>
+
+        <line x1="320" y1="85" x2="380" y2="85" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow2)"/>
+        <rect x="380" y="60" width="100" height="50" fill="#fff59d" stroke="#333"/>
+        <text x="398" y="90" font-size="12" fill="#222">Battery Bank</text>
+
+        <line x1="480" y1="85" x2="560" y2="85" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow2)"/>
+        <rect x="540" y="60" width="40" height="50" fill="#ef9a9a" stroke="#333"/>
+        <text x="545" y="90" font-size="10" fill="#222">Load</text>
+      </svg>
+    </div>
+
+    <div class="explanation">
+      <h3>System Explanation</h3>
+      <p>This hybrid system combines solar PV and a wind turbine, coordinated by a charge controller and a battery bank. It is tailored to power essential equipment at a rural health clinic, prioritizing continuous, reliable supply for critical loads.</p>
+
+      <h3>Source of Energy</h3>
+      <p>Energy sources are sunlight (solar PV) and wind (turbine). Combining both improves generation reliability across diurnal and seasonal variations.</p>
+
+      <h3>Conversion Process</h3>
+      <p>Solar panels produce DC; wind turbines typically generate AC. Both inputs are managed via a charge controller (or rectifier + controller) to charge batteries. An inverter supplies regulated AC to clinic equipment such as lighting, refrigeration, and diagnostics.</p>
+
+      <h3>Output/Utilization</h3>
+      <p>The system supports vaccine refrigerators, lighting, diagnostic devices, and communication tools necessary for uninterrupted healthcare services in remote settings.</p>
+
+      <h3>Real-World Application</h3>
+      <p>Hybrid renewables reduce reliance on diesel gensets, lower operating costs, and ensure 24×7 power for medical services, improving healthcare outcomes in off-grid rural communities.</p>
+    </div>
+  </section>
+
+  <!-- Activity 3 -->
+  <section id="activity3" aria-labelledby="act3Title">
+    <header class="page-title">
+      <h1 id="act3Title">Activity 3: Solar-Powered Irrigation Pumping System (Off-grid)</h1>
+    </header>
+
+    <div class="diagram" role="img" aria-label="Block diagram showing solar PV to controller to motor pump to water output">
+      <svg viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" role="graphics-document">
+        <defs>
+          <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#004b8d" />
+          </marker>
+        </defs>
+
+        <rect x="20" y="50" width="100" height="50" fill="#ffd54f" stroke="#333"/>
+        <text x="35" y="80" font-size="12" fill="#222">Solar PV</text>
+
+        <line x1="120" y1="75" x2="200" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow3)"/>
+        <rect x="200" y="50" width="100" height="50" fill="#81d4fa" stroke="#333"/>
+        <text x="215" y="80" font-size="12" fill="#222">Controller</text>
+
+        <line x1="300" y1="75" x2="380" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow3)"/>
+        <rect x="380" y="50" width="100" height="50" fill="#aed581" stroke="#333"/>
+        <text x="400" y="80" font-size="12" fill="#222">Motor Pump</text>
+
+        <line x1="480" y1="75" x2="560" y2="75" stroke="#004b8d" stroke-width="3" marker-end="url(#arrow3)"/>
+        <rect x="540" y="50" width="40" height="50" fill="#ef9a9a" stroke="#333"/>
+        <text x="543" y="80" font-size="10" fill="#222">Water</text>
+      </svg>
+    </div>
+
+    <div class="explanation">
+      <h3>System Explanation</h3>
+      <p>This solar irrigation system powers an electric motor pump using PV-generated electricity. It is designed for off-grid agricultural applications, delivering water for crop irrigation and livestock needs without diesel or grid dependency.</p>
+
+      <h3>Source of Energy</h3>
+      <p>Source: solar radiation captured by photovoltaic panels mounted near the pump site or on-farm arrays.</p>
+
+      <h3>Conversion Process</h3>
+      <p>PV modules produce DC; a controller (often an MPPT) optimizes power and supplies the motor drive. In some systems an inverter or a DC motor is used depending on design; mechanical energy from the motor lifts water from wells or canals.</p>
+
+      <h3>Output/Utilization</h3>
+      <p>The pumped water is used for crop irrigation, greenhouse watering, and livestock supply. Systems can operate directly during peak sun or use battery/storage for extended operation.</p>
+
+      <h3>Real-World Application</h3>
+      <p>Solar pumps reduce fuel costs, lower emissions, and increase irrigation reliability in rural areas. They support agricultural productivity and food security, especially where grid supply is absent or unreliable.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // initial highlight handling
+  function showSection(id, linkEl){
+    // show/hide sections
+    document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+    var target = document.getElementById(id);
+    if(target) target.classList.add('active');
+
+    // update nav active
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    if(linkEl) linkEl.classList.add('active');
+    else {
+      // fallback: find link with matching data-target
+      var fallback = document.querySelector('nav a[data-target="'+id+'"]');
+      if(fallback) fallback.classList.add('active');
+    }
+    // focus the first heading in section for accessibility
+    setTimeout(()=> {
+      var h = target && target.querySelector('h1, h2, h3');
+      if(h) h.focus && h.setAttribute('tabindex','-1') && h.focus();
+    }, 120);
+  }
+
+  // wire nav anchors without onclick (if user clicks via keyboard)
+  document.querySelectorAll('nav a[data-target]').forEach(a=>{
+    a.addEventListener('click', function(ev){
+      ev.preventDefault();
+      showSection(this.getAttribute('data-target'), this);
+    });
+  });
+
+  // ensure correct initial state
+  document.addEventListener('DOMContentLoaded', function(){
+    // ensure "about" is active by default (already set in markup)
+    showSection('about', document.querySelector('nav a[data-target="about"]'));
+  });
+</script>
+</body>
+</html>
